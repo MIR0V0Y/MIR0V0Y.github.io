@@ -1,36 +1,48 @@
-<!DOCTYPE html> <!-- Объявление формата документа -->
-<html>
-<head> <!-- Техническая информация о документе -->
-<meta charset="UTF-8"> <!-- Определяем кодировку символов документа -->
-<title> Mirovoy </title> <!-- Задаем заголовок документа -->
-<!-- <link rel="stylesheet" type="text/css" href="style.css">  Подключаем внешнюю таблицу стилей -->
-<!-- <script src="script.js"></script>  Подключаем сценарии -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Telegram Web App Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Подключение Telegram Web App JS (они будут доступны внутри клиента Telegram) -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+    
 </head>
-<body> <!-- Основная часть документаа -->
-  
- 
-<div> 
+<body>
+    <div class="main">
+
+        <div class="section">
+            <h1>Служебные записки:</h1>
+        </div>
+
+        <!--
+        <div class="section">
+            <div class="tabs">
+                <button class="tab-button active" onclick="openTab(event, 'tab1')"><b>Активные</b></button>
+                <button class="tab-button" onclick="openTab(event, 'tab2')"><b>Подписанные</b></button>
+                <button class="tab-button" onclick="openTab(event, 'tab3')"><b>На доработке</b></button>
+            </div>
+        </div>
+        -->
+
+        <hr>
+        <div id="DinamicContainer">
+
+        </div>
 
 
-<a href="https://www.burlutsky.su/ru/security-ru/%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%8C-%D0%BF%D0%BE%D1%80%D1%82-zabbix-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D0%B0-%D0%B2-linux-%D1%84%D0%B0%D0%B9%D1%80%D0%B2%D0%BE%D0%BB%D0%BB/">Ссыль</a>
-  
-  <p> ПРАКТИКА    </p>
-  <a href="https://docs.google.com/document/d/19rQ6b4QNOzT4nWzc7WY9hVVLgBP0-B7u724_yNrdxlo/edit?usp=sharing">Хрень</a>
-  
-  <p> Английский </p>
-  
-  <a href="https://docs.google.com/presentation/d/1tcCbGoKnKcUHYht3gNmPXoKy7RiCtWhRdEJc5vgE4ro/edit?usp=sharing">Презентация</a>
-  
-  <p> СЕТИ </p> 
-  
-  <a href="https://docs.google.com/document/d/1dGMPumzJ7MNE2Wveai1Kf5k3zwL4Bv7NI9BdDBwvRKg/edit?usp=sharing">1.</a>
-  <a href="https://docs.google.com/document/d/1197EQptm3FfIlsOecn_SL0fiV0rs8nucFraOO88mdjU/edit?usp=sharing">2</a>
-  <a href="https://docs.google.com/document/d/1QZ9jAS-d2MAbd_li_O7q6FJKwBGIw23Mi9vMANydnKE/edit?usp=sharing">3</a>
-  <a href="https://docs.google.com/document/d/1P1YweD1T7ULfeKjmOYRuiyghH88pvWAFsJh2nWWJGHc/edit?usp=sharing">4</a>
 
-  
-  </div>
 
-   
+    </div>
+
+
+    <script src="/general.js"></script>
+    <script src="/main.js"></script>
+
+
+
+
+
 </body>
 </html>
