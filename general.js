@@ -4,6 +4,7 @@ var tg = window.Telegram.WebApp;
 var UserUIN;
 var credentials;
 var serverURL;
+var publishNAME = "2022/";
 
 
 tg.SettingsButton.onClick(() => {

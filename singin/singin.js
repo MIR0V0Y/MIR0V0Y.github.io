@@ -64,7 +64,7 @@ function MBC() {
     }
     urlOrigin += "/";
 
-    let url = urlOrigin + "npt2022/hs/sz/user/" + username;
+    let url = serverURL + publishNAME + "hs/sz/user/" + username;
 
 
     // Формирование строки авторизации в формате "username:password" в Base64

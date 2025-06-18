@@ -28,7 +28,7 @@ getValue('docList')
 
 function SBC() {
 
-    const url = serverURL + "npt2022/hs/sz/getsz/" + UserUIN;
+    const url = serverURL + publishNAME + "hs/sz/getsz/" + UserUIN;
 
     fetch(url, {
         method: "GET",
