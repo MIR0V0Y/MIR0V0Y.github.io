@@ -1,5 +1,5 @@
 tg.MainButton.setText("Вдарил!");
-tg.BackButton.onClick(MBC);
+tg.MainButton.onClick(MBC);
 tg.MainButton.show();
 tg.MainButton.disable();
 
