@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <div>
+    <h1>Что я...</h1>
+    <div class="form-group">    
         <label for="brand">Бренд:</label>
         <select id="brand" name="brand">
             <option value="Пиво">Пиво</option>
@@ -22,7 +23,7 @@
         <input type="text" id="brand-other" name="brand-other" placeholder="Введите напиток" style="display: none;">
     </div>
 
-    <div>
+    <div class="form-group">
         <label for="percent">Крепость:</label>
         <select id="percent" name="percent">
             <option value="5%">5%</option>
@@ -34,7 +35,7 @@
         <input type="text" id="percent-other" name="percent-other" placeholder="Введите крепость" style="display: none;">
     </div>
 
-    <div>
+    <div class="form-group">
         <label for="volume">Объем:</label>
         <select id="volume" name="volume">
             <option value="50мл">50мл</option>
@@ -46,7 +47,7 @@
         <input type="text" id="volume-other" name="volume-other" placeholder="Введите объем" style="display: none;">
     </div>
 
-    <div>
+    <div class="form-group">
         <label for="price">Цена:</label>
         <select id="price" name="price">
             <option value="100">100</option>
