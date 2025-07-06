@@ -14,7 +14,7 @@ function checkFields() {
     const price = document.getElementById('price').value;
     
     if (volume && percent) {
-        MainButton.enable();
+        tg.MainButton.enable();
         if (brand && price) {
             tg.MainButton.hasShineEffect = true;
         } else {
