@@ -16,12 +16,12 @@ function checkFields() {
     if (volume && percent) {
         MainButton.enable();
         if (brand && price) {
-            MainButton.hasShineEffect = true;
+            tg.MainButton.hasShineEffect = true;
         } else {
-            MainButton.hasShineEffect = false;
+            tg.MainButton.hasShineEffect = false;
         }
     } else {
-        MainButton.disable();
+        tg.MainButton.disable();
     }
 }
 
