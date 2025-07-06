@@ -4,8 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <h1>Hello, World!</h1>
+    <div>
+        <label for="countries">Бренд:</label>
+        <input list="brand-list" id="brand" name="brand">
+        <datalist id="brand-list">
+            <option value="Пиво"></option>
+            <option value="Виски"></option>
+        </datalist>
+    </div>
+
+    <div>
+        <label for="percent">Крепость:</label>
+        <input list="percent-list" id="percent" name="percent">
+        <datalist id="percent-list">
+            <option value="5%"></option>
+            <option value="15%"></option>
+            <option value="40%"></option>
+            <option value="70%"></option>
+        </datalist>
+    </div>
+
+    <div>
+        <label for="volume">Объем:</label>
+        <input list="volume-list" id="volume" name="volume">
+        <datalist id="volume-list">
+            <option value="50мл"></option>
+            <option value="100мл"></option>
+            <option value="0.33л"></option>
+            <option value="0.5л"></option>
+        </datalist>
+    </div>
+
+    <div>
+        <label for="price">Цена:</label>
+        <input list="price-list" id="price" name="price">
+        <datalist id="price-list">
+            <option value="100"></option>
+            <option value="200"></option>
+        </datalist>
+    </div>
+
+
+        
+
 </body>
+
+<script src="/general.js"></script>
+<script src="/main.js"></script>
+
 </html> 
