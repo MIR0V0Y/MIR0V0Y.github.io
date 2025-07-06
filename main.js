@@ -1,7 +1,7 @@
 tg.MainButton.setText("Вдарил!");
 tg.BackButton.onClick(MBC);
 tg.MainButton.show();
-MainButton.disable();
+tg.MainButton.disable();
 
 function MBC() {
     // TODO: Выполнить удар
