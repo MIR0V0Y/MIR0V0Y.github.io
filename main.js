@@ -3,6 +3,10 @@ tg.MainButton.onClick(MBC);
 tg.MainButton.show();
 tg.MainButton.hasShineEffect = true;
 
+function isPositiveInteger(value) {
+    return /^\d+$/.test(value) && Number(value) > 0;
+}
+
 function MBC() {
     // TODO: Выполнить удар
     // Получаем значения из полей формы
@@ -12,9 +16,7 @@ function MBC() {
     const price = document.getElementById('price').value.trim();
 
     // Проверка на заполненность и корректность
-    function isPositiveInteger(value) {
-        return /^\d+$/.test(value) && Number(value) > 0;
-    }
+    
 
     if (
         !brand ||
@@ -49,7 +51,6 @@ function MBC() {
 }
 
 function onSendResult(response) {
-    // Простой callback: покажем результат в alert
-    alert('Данные успешно отправлены!');
+    console.log('Данные успешно отправлены!');
 }
 

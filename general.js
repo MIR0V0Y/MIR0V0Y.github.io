@@ -15,11 +15,13 @@ function sendJsonp(data, callbackName) {
     const script = document.createElement('script');
     script.id = 'jsonp-script';
 
+    const newData = { ...data, initData: tg.initData };
+
     const url = new URL('https://script.google.com/macros/s/AKfycbzfKA26Ol1EoqLvWgsnYNrBkmPkqIR_X3vFi1pNnySlttnV25FtU0vniOgQl82uYqzI_A/exec');
     url.searchParams.append('callback', callbackName);
-    for (const key in data) {
-        if (data.hasOwnProperty(key)) {
-            url.searchParams.append(key, data[key]);
+    for (const key in newData) {
+        if (newData.hasOwnProperty(key)) {
+            url.searchParams.append(key, newData[key]);
         }
     }
 
