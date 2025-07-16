@@ -27,7 +27,7 @@ function sendJsonp(data, callbackName) {
     
     script.onload = () => {
         // Clean up the script tag once it has been loaded
-        document.head.removeChild(script);
+        document.body.removeChild(script);
     };
     
     script.onerror = () => {
