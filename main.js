@@ -51,6 +51,6 @@ function MBC() {
 }
 
 function onSendResult(response) {
-    console.log('Данные успешно отправлены!');
+    console.log(response);
 }
 
