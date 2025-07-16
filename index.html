@@ -3,66 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>Alcometron</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Что я...</h1>
-    <div class="form-group">    
-        <label for="brand">Бренд:</label>
-        <select id="brand" name="brand">
-            <option value="Пиво">Пиво</option>
-            <option value="Виски">Виски</option>
-            <option value="Водка">Водка</option>
-            <option value="Коньяк">Коньяк</option>
-            <option value="Текила">Текила</option>
-            <option value="Ром">Ром</option>
-            <option value="Другое">Другое</option>
-        </select>
-        <input type="text" id="brand-other" name="brand-other" placeholder="Введите напиток" style="display: none;">
-    </div>
+    <h1>Что я пью?</h1>
 
-    <div class="form-group">
-        <label for="percent">Крепость:</label>
-        <select id="percent" name="percent">
-            <option value="5%">5%</option>
-            <option value="15%">15%</option>
-            <option value="40%">40%</option>
-            <option value="70%">70%</option>
-            <option value="Другое">Другое</option>
-        </select>
-        <input type="text" id="percent-other" name="percent-other" placeholder="Введите крепость" style="display: none;">
-    </div>
+    <label for="template-select">Шаблон:</label>
+    <select id="template-select" onchange="fillFields()">
+        <option value="">--Выберите шаблон--</option>
+        <option value="beer_0.5">Пиво 0.5</option>
+    </select>
 
-    <div class="form-group">
-        <label for="volume">Объем:</label>
-        <select id="volume" name="volume">
-            <option value="50мл">50мл</option>
-            <option value="100мл">100мл</option>
-            <option value="0.33л">0.33л</option>
-            <option value="0.5л">0.5л</option>
-            <option value="Другое">Другое</option>
-        </select>
-        <input type="text" id="volume-other" name="volume-other" placeholder="Введите объем" style="display: none;">
-    </div>
+    <br><br>
 
-    <div class="form-group">
-        <label for="price">Цена:</label>
-        <select id="price" name="price">
-            <option value="100">100</option>
-            <option value="200">200</option>
-            <option value="Другое">Другое</option>
-        </select>
-        <input type="text" id="price-other" name="price-other" placeholder="Введите цену" style="display: none;">
-    </div>
+    <label for="brand">Напиток:</label>
+    <input type="text" id="brand" name="brand"><br><br>
 
+    <label for="percent">Процент:</label>
+    <input type="text" id="percent" name="percent"><br><br>
 
-        
+    <label for="volume">Объем (мл):</label>
+    <input type="number" id="volume" name="volume"><br><br>
+
+    <label for="price">Цена (у.е.):</label>
+    <input type="number" id="price" name="price"><br><br>
+
+    <script>
+        function fillFields() {
+            const select = document.getElementById('template-select');
+            const brandInput = document.getElementById('brand');
+            const percentInput = document.getElementById('percent');
+            const volumeInput = document.getElementById('volume');
+            const priceInput = document.getElementById('price');
+
+            if (select.value === 'beer_0.5') {
+                brandInput.value = 'Пиво';
+                percentInput.value = '5%';
+                volumeInput.value = 500;
+                priceInput.value = 150;
+            } else {
+                brandInput.value = '';
+                percentInput.value = '';
+                volumeInput.value = '';
+                priceInput.value = '';
+            }
+        }
+    </script>
+
+    <script src="/general.js"></script>
+    <script src="/main.js"></script>
 
 </body>
-
-<script src="/general.js"></script>
-<script src="/main.js"></script>
-
-</html> 
+</html>

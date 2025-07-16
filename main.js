@@ -5,6 +5,7 @@ tg.MainButton.hasShineEffect = true;
 
 function MBC() {
     // TODO: Выполнить удар
+    
 }
 
 // Обработчики для показа/скрытия текстовых полей при выборе "Другое"
