@@ -17,7 +17,7 @@ function sendJsonp(path, data, callbackName) {
 
     const newData = { ...data, initData: tg.initData };
 
-    const url = new URL(APP_SCRIPT_URL + '/' + path);
+    const url = new URL(APP_SCRIPT_URL + '/' + path + '/');
     url.searchParams.append('callback', callbackName);
     for (const key in newData) {
         if (newData.hasOwnProperty(key)) {
