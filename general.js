@@ -1,12 +1,12 @@
 var tg = window.Telegram.WebApp;
-const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzfKA26Ol1EoqLvWgsnYNrBkmPkqIR_X3vFi1pNnySlttnV25FtU0vniOgQl82uYqzI_A/exec/testurl/';
+const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzfKA26Ol1EoqLvWgsnYNrBkmPkqIR_X3vFi1pNnySlttnV25FtU0vniOgQl82uYqzI_A/exec';
 
 tg.SettingsButton.onClick(() => {
     window.location.href = '/settings/settings.html';
 });
 tg.SettingsButton.show();
 
-function sendJsonp(data, callbackName) {
+function sendJsonp(path, data, callbackName) {
     // Проверяем, не выполняется ли уже другой запрос
     if (document.getElementById('jsonp-script')) {
         console.warn('Предыдущий запрос еще не завершен.');
@@ -17,7 +17,7 @@ function sendJsonp(data, callbackName) {
 
     const newData = { ...data, initData: tg.initData };
 
-    const url = new URL('https://script.google.com/macros/s/AKfycbzfKA26Ol1EoqLvWgsnYNrBkmPkqIR_X3vFi1pNnySlttnV25FtU0vniOgQl82uYqzI_A/exec');
+    const url = new URL(APP_SCRIPT_URL + path);
     url.searchParams.append('callback', callbackName);
     for (const key in newData) {
         if (newData.hasOwnProperty(key)) {

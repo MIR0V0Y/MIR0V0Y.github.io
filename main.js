@@ -47,7 +47,7 @@ function MBC() {
     };
 
     // Отправляем данные через sendJsonp
-    sendJsonp(data, 'onSendResult');
+    sendJsonp('testurl', data, 'onSendResult');
 }
 
 function onSendResult(response) {
