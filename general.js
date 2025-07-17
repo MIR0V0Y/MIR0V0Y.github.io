@@ -6,7 +6,7 @@ tg.SettingsButton.onClick(() => {
 });
 tg.SettingsButton.show();
 
-function sendJsonp(path, data, callbackName) {
+function sendJsonp(url, data, callbackName) {
     // Проверяем, не выполняется ли уже другой запрос
     if (document.getElementById('jsonp-script')) {
         console.warn('Предыдущий запрос еще не завершен.');
@@ -17,15 +17,15 @@ function sendJsonp(path, data, callbackName) {
 
     const newData = { ...data, initData: tg.initData };
 
-    const url = new URL(APP_SCRIPT_URL + '/' + path);
-    url.searchParams.append('callback', callbackName);
+    const requestUrl = new URL(url);
+    requestUrl.searchParams.append('callback', callbackName);
     for (const key in newData) {
         if (newData.hasOwnProperty(key)) {
-            url.searchParams.append(key, newData[key]);
+            requestUrl.searchParams.append(key, newData[key]);
         }
     }
 
-    script.src = url.toString();
+    script.src = requestUrl.toString();
     
     script.onload = () => {
         // Clean up the script tag once it has been loaded
