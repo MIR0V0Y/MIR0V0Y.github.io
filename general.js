@@ -1,5 +1,5 @@
 var tg = window.Telegram.WebApp;
-const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzfKA26Ol1EoqLvWgsnYNrBkmPkqIR_X3vFi1pNnySlttnV25FtU0vniOgQl82uYqzI_A/exec/testurl';
+const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzfKA26Ol1EoqLvWgsnYNrBkmPkqIR_X3vFi1pNnySlttnV25FtU0vniOgQl82uYqzI_A/exec/testurl/';
 
 tg.SettingsButton.onClick(() => {
     window.location.href = '/settings/settings.html';
