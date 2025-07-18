@@ -2,8 +2,40 @@ body {
     font-family: Arial, sans-serif;
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0;
     text-align: center;
+    background-color: #fff; /* Setting a background color for the body */
+}
+
+.tabs-container {
+    display: flex;
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+.tab {
+    flex: 1;
+    padding: 14px 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+    border-bottom: 3px solid transparent;
+    color: #555;
+}
+
+.tab:hover {
+    background-color: #e9e9e9;
+}
+
+.tab.active {
+    background-color: #fff;
+    border-bottom: 3px solid #007bff;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.content {
+    padding: 20px;
 }
 
 h1 {
@@ -62,4 +94,41 @@ input[type="text"], input[type="number"] {
 
 .btn:hover {
     background-color: #0056b3;
+}
+
+
+/* Стили для выпадающего списка */
+#template-select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+#template-select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Стили для полей ввода */
+#brand, #percent, #volume, #price {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+#brand:focus, #percent:focus, #volume:focus, #price:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
