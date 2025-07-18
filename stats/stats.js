@@ -9,6 +9,11 @@ function SBC () {
 
 function updateStats (response) {
     stats = response.message[0];
+
+    document.getElementsByClassName('skeleton-loader').forEach(element => {
+        element.classList.remove('skeleton-loader');
+    });
+    
     document.getElementById('drinks-24h').innerHTML = stats[1];
     document.getElementById('liters-24h').innerHTML = stats[2];
     document.getElementById('alcohol-24h').innerHTML = stats[3];
