@@ -153,3 +153,29 @@ input[type="text"], input[type="number"] {
         background-position: -200% 0;
     }
 }
+
+.stats-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+.stats-labels {
+    font-size: 14px;
+    color: #888;
+    font-weight: 500;
+}
+.stats-label {
+    flex: 1;
+    text-align: center;
+}
+.stats-values {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+}
+.stats-values span {
+    flex: 1;
+    text-align: center;
+    min-width: 3em;
+}
+
