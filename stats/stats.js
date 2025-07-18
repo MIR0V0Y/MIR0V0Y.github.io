@@ -10,7 +10,7 @@ function SBC () {
 function updateStats (response) {
     stats = response.message[0];
 
-    document.getElementsByClassName('skeleton-loader').forEach(element => {
+    Array.from(document.getElementsByClassName('skeleton-loader')).forEach(element => {
         element.classList.remove('skeleton-loader');
     });
     
