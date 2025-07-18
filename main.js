@@ -7,6 +7,15 @@ tg.SecondaryButton.position = 'top';
 tg.SecondaryButton.show();
 tg.MainButton.hasShineEffect = true;
 
+
+/* TODO:
+Шаблон стартует с "Новый напиток"
+Вторичная кнопка по дефолту должна добавлять шаблон, при заполнении всех полей.
+Если пользователь выбрал шаблон, то вторичная кнопка должна удалять шаблон.
+Если пользователь выбрал шаблон, и изменил его, вторичная кнопка должна обновлять шаблон
+
+*/
+
 function isPositiveInteger(value) {
     return /^\d+$/.test(value) && Number(value) > 0;
 }
