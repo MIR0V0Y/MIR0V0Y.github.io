@@ -60,7 +60,5 @@ function SBC () {
 }
 
 
-function consoleLogResult(response) {
-    console.log(response);
-}
+
 

@@ -43,3 +43,7 @@ function sendJsonp(path, data, callbackName) {
     document.body.appendChild(script);
     console.log('Отправили данные JSONP');
 }
+
+function consoleLogResult(response) {
+    console.log(response);
+}
