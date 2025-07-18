@@ -45,10 +45,11 @@ function MBC() {
         volume: volume,
         price: price
     };
-
+    
     // Отправляем данные через sendJsonp
-        sendJsonp(APP_SCRIPT_URL, data, 'onSendResult');
+        sendJsonp('load', data, 'onSendResult');
 }
+
 
 function onSendResult(response) {
     console.log(response);
