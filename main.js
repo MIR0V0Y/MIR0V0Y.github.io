@@ -1,6 +1,10 @@
 tg.MainButton.setText("Вдарил!");
 tg.MainButton.onClick(MBC);
 tg.MainButton.show();
+tg.SecondaryButton.setText("Узнать сколько Вдарил!");
+tg.SecondaryButton.onClick(SBC);
+tg.SecondaryButton.position = 'top';
+tg.SecondaryButton.show();
 tg.MainButton.hasShineEffect = true;
 
 function isPositiveInteger(value) {
@@ -47,11 +51,16 @@ function MBC() {
     };
     
     // Отправляем данные через sendJsonp
-        sendJsonp('drinked', data, 'onSendResult');
+        sendJsonp('drinked', data, 'consoleLogResult');
 }
 
 
-function onSendResult(response) {
+function SBC () {
+    sendJsonp('stats', {}, 'consoleLogResult');
+}
+
+
+function consoleLogResult(response) {
     console.log(response);
 }
 
