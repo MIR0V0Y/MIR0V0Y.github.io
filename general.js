@@ -15,7 +15,7 @@ function sendJsonp(path, data, callbackName) {
     const script = document.createElement('script');
     script.id = 'jsonp-script';
 
-    const newData = { ...data, initData: tg.initData, path: path };
+    const newData = { ...data, path: path , initData: tg.initData};
 
     const requestUrl = new URL(APP_SCRIPT_URL);
     requestUrl.searchParams.append('callback', callbackName);
