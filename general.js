@@ -47,3 +47,27 @@ function sendJsonp(path, data, callbackName) {
 function consoleLogResult(response) {
     console.log(response);
 }
+
+// Functions for working with DeviceStorage
+function saveToDeviceStorage(key, value, callback) {
+    tg.DeviceStorage.setItem(key, value, (error, success) => {
+        if (error) {
+            console.error('Error saving to DeviceStorage:', error);
+        }
+        if (callback) {
+            callback(error, success);
+        }
+    });
+}
+
+function getFromDeviceStorage(key, callback) {
+    tg.DeviceStorage.getItem(key, (error, value) => {
+        if (error) {
+            console.error('Error getting from DeviceStorage:', error);
+            return;
+        }
+        if (callback) {
+            callback(value);
+        }
+    });
+}

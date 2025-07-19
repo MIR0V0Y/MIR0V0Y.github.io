@@ -8,6 +8,8 @@ tg.SecondaryButton.show();
 tg.MainButton.hasShineEffect = true;
 
 
+tg.DeviceStorage.setItem('template', 'beer_0.5');
+
 /* TODO:
 Шаблон стартует с "Новый напиток"
 Вторичная кнопка по дефолту должна добавлять шаблон, при заполнении всех полей.
@@ -90,3 +92,9 @@ function onchangeTemplateSelect() {
         priceInput.value = '';
     }
 }
+
+
+
+getFromDeviceStorage('template', (value) => {
+    console.log(value);
+});
