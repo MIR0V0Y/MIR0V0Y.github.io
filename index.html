@@ -17,7 +17,7 @@
         <h1>Что я пью?</h1>
 
         <label for="template-select">Шаблон:</label>
-        <select id="template-select" onchange="fillFields()">
+        <select id="template-select" onchange="onchangeTemplateSelect()">
             <option value="">--Выберите шаблон--</option>
             <option value="beer_0.5">Пиво 0.5</option>
         </select>
@@ -36,27 +36,6 @@
         <label for="price">Цена (руб):</label>
         <input type="number" id="price" name="price" oninput="this.value = this.value.replace(/[^0-9]/g, '100')"><br><br>
 
-        <script>
-            function fillFields() {
-                const select = document.getElementById('template-select');
-                const brandInput = document.getElementById('brand');
-                const percentInput = document.getElementById('percent');
-                const volumeInput = document.getElementById('volume');
-                const priceInput = document.getElementById('price');
-
-                if (select.value === 'beer_0.5') {
-                    brandInput.value = 'Пиво';
-                    percentInput.value = 5;
-                    volumeInput.value = 500;
-                    priceInput.value = 150;
-                } else {
-                    brandInput.value = '';
-                    percentInput.value = '';
-                    volumeInput.value = '';
-                    priceInput.value = '';
-                }
-            }
-        </script>
 
         <script src="/general.js"></script>
         <script src="main.js"></script>

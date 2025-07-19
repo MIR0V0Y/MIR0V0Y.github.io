@@ -71,3 +71,22 @@ function SBC () {
 
 
 
+function onchangeTemplateSelect() {
+    const select = document.getElementById('template-select');
+    const brandInput = document.getElementById('brand');
+    const percentInput = document.getElementById('percent');
+    const volumeInput = document.getElementById('volume');
+    const priceInput = document.getElementById('price');
+
+    if (select.value === 'beer_0.5') {
+        brandInput.value = 'Пиво';
+        percentInput.value = 5;
+        volumeInput.value = 500;
+        priceInput.value = 150;
+    } else {
+        brandInput.value = '';
+        percentInput.value = '';
+        volumeInput.value = '';
+        priceInput.value = '';
+    }
+}
