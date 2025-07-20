@@ -1,10 +1,10 @@
 tg.MainButton.setText("Вдарил!");
 tg.MainButton.onClick(MBC);
 tg.MainButton.show();
-tg.SecondaryButton.setText("Узнать сколько Вдарил!");
-tg.SecondaryButton.onClick(SBC);
-tg.SecondaryButton.position = 'top';
-tg.SecondaryButton.show();
+//tg.SecondaryButton.setText("Узнать сколько Вдарил!");
+//tg.SecondaryButton.onClick(SBC);
+//tg.SecondaryButton.position = 'top';
+//tg.SecondaryButton.show();
 tg.MainButton.hasShineEffect = true;
 
 
@@ -74,9 +74,6 @@ function transactionNotifier(response) {
 }
 
 
-function SBC () {
-    sendJsonp('stats', {}, 'consoleLogResult');
-}
 
 
 
