@@ -62,7 +62,15 @@ function MBC() {
     };
     
     // Отправляем данные через sendJsonp
-        sendJsonp('drinked', data, 'consoleLogResult');
+    sendJsonp('drinked', data, 'transactionNotifier');
+}
+
+function transactionNotifier(response) {
+    if (response.status == 'success') {
+        tg.showAlert('Напиток успешно добавлен!');
+    } else {
+        tg.showAlert('Ошибка при добавлении напитка!');
+    }
 }
 
 
