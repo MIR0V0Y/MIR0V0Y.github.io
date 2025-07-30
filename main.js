@@ -15,7 +15,7 @@ tg.DeviceStorage.getItem(key, (error, value) => {
         console.error('Error getting from DeviceStorage:', error);
         return;
     }
-    templatesList.push(value);
+    templatesList = JSON.parse(value);
 });
 
 for (let i = 0; i < templatesList.length; i++) {
@@ -147,8 +147,8 @@ function SBC() {
             price: priceInput.value
         }
     )
-
-    saveToDeviceStorage('templates', templatesList);
+    
+    saveToDeviceStorage('templates', JSON.stringify(templatesList));
 }
 
 
