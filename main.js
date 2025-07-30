@@ -153,10 +153,7 @@ function onchangeTemplateSelect() {
             priceInput.value == templatesList[selectedIndex].price
         ) {
             tg.SecondaryButton.setText("Удалить шаблон");
-            tg.SecondaryButton.onClick(addTemplates);
-        } else {
-            tg.SecondaryButton.setText("Изменить шаблон");
-            tg.SecondaryButton.onClick(addTemplates);
+            tg.SecondaryButton.onClick(delTemplates);
         }
     }
 
@@ -193,3 +190,22 @@ function addTemplates() {
 
 
 
+function delTemplates() {
+    tg.showConfirm('Удалить данный шаблон?', (confirm) => {
+        if (confirm){
+
+            // Удаление из templatesList
+            templatesList.splice(selectedIndex, 1)
+            saveToDeviceStorage('templates', JSON.stringify(templatesList));
+
+            // Удаление из select
+            let select = document.getElementById('template-select');
+            select.remove(select.selectedIndex);
+
+        }
+    })	
+
+    
+
+
+}
