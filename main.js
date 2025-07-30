@@ -8,7 +8,26 @@ tg.SecondaryButton.show();
 tg.MainButton.hasShineEffect = true;
 
 var templatesList = [];
-
+var staticTemplates = [
+    {
+        name: '--- Новый напиток ---',
+        percent: '',
+        volume: '',
+        price: ''
+    },
+    {
+        name: 'Пиво 0.5',
+        percent: 5,
+        volume: 500,
+        price: 150
+    },
+    {
+        name: 'Шот 40%',
+        percent: 40,
+        volume: 100,
+        price: 20
+    }
+]
 
 tg.DeviceStorage.getItem('templates', (error, value) => {
     if (error) {
@@ -16,6 +35,7 @@ tg.DeviceStorage.getItem('templates', (error, value) => {
         return;
     }
     templatesList = JSON.parse(value);
+    templatesList.unshift(staticTemplates);
     for (let i = 0; i < templatesList.length; i++) {
         const opt = document.createElement("option");
         opt.value = templatesList[i].name;
@@ -139,8 +159,9 @@ function SBC() {
         return;
     }
 
-
-    templatesList.push(
+    
+    newTemplatesList = templatesList.slice(staticTemplates.length)
+    newTemplatesList.push(
         {
             name: brandInput.value,
             percent: percentInput.value,
@@ -149,7 +170,7 @@ function SBC() {
         }
     )
     
-    saveToDeviceStorage('templates', JSON.stringify(templatesList));
+    saveToDeviceStorage('templates', JSON.stringify(newTemplatesList));
 }
 
 
