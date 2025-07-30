@@ -2,7 +2,7 @@ tg.MainButton.setText("Вдарил!");
 tg.MainButton.onClick(MBC);
 tg.MainButton.show();
 tg.SecondaryButton.setText("Сделать шаблоном");
-tg.SecondaryButton.onClick(SBC);
+tg.SecondaryButton.onClick(addTemplates);
 tg.SecondaryButton.position = 'top';
 tg.SecondaryButton.show();
 tg.MainButton.hasShineEffect = true;
@@ -133,26 +133,40 @@ function onchangeTemplateSelect() {
     const volumeInput = document.getElementById('volume');
     const priceInput = document.getElementById('price');
 
-    /*
-    const opt1 = document.createElement("option");
-    opt1.value = "1";
-    opt1.text = "Option: Value 1";
-    sel.add(opt1, null);
-    */
 
+    // Вывод шаблона
     const selectedIndex = select.selectedIndex;
     brandInput.value = templatesList[selectedIndex].name;
     percentInput.value = templatesList[selectedIndex].percent;
     volumeInput.value = templatesList[selectedIndex].volume;
     priceInput.value = templatesList[selectedIndex].price;
 
+    // Логика вторичной кнопки
+    if (selectedIndex == 0){
+        tg.SecondaryButton.setText("Сделать шаблоном");
+        tg.SecondaryButton.onClick(addTemplates);
+    } else {
+        if (
+            brandInput.value == templatesList[selectedIndex].name ||
+            percentInput.value == templatesList[selectedIndex].percent ||
+            volumeInput.value == templatesList[selectedIndex].volume ||
+            priceInput.value == templatesList[selectedIndex].price
+        ) {
+            tg.SecondaryButton.setText("Удалить шаблон");
+            tg.SecondaryButton.onClick(addTemplates);
+        } else {
+            tg.SecondaryButton.setText("Изменить шаблон");
+            tg.SecondaryButton.onClick(addTemplates);
+        }
+    }
+
 }
 
 
 
-function SBC() {
+function addTemplates() {
 
-    // Добавлени
+    // Добавление в шаблоны
     const select = document.getElementById('template-select');
     const brandInput = document.getElementById('brand');
     const percentInput = document.getElementById('percent');
@@ -176,7 +190,6 @@ function SBC() {
     
     saveToDeviceStorage('templates', JSON.stringify(newTemplatesList));
 }
-
 
 
 
