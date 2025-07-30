@@ -10,7 +10,7 @@ tg.MainButton.hasShineEffect = true;
 var templatesList = [];
 
 
-tg.DeviceStorage.getItem(key, (error, value) => {
+tg.DeviceStorage.getItem('templates', (error, value) => {
     if (error) {
         console.error('Error getting from DeviceStorage:', error);
         return;
