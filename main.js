@@ -35,7 +35,11 @@ tg.DeviceStorage.getItem('templates', (error, value) => {
         return;
     }
     templatesList = JSON.parse(value);
-    templatesList.unshift(staticTemplates);
+
+    for (let i = staticTemplates.length - 1; i >= 0; i--) {
+        templatesList.unshift(staticTemplates[i]);
+    }
+
     for (let i = 0; i < templatesList.length; i++) {
         const opt = document.createElement("option");
         opt.value = templatesList[i].name;
