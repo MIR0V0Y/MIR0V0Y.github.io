@@ -16,14 +16,15 @@ tg.DeviceStorage.getItem('templates', (error, value) => {
         return;
     }
     templatesList = JSON.parse(value);
+    for (let i = 0; i < templatesList.length; i++) {
+        const opt = document.createElement("option");
+        opt.value = templatesList[i].name;
+        opt.text = templatesList[i].name;
+        document.getElementById('template-select').add(opt, null);
+    }
 });
 
-for (let i = 0; i < templatesList.length; i++) {
-    const opt = document.createElement("option");
-    opt.value = templatesList[i].name;
-    opt.text = templatesList[i].name;
-    document.getElementById('template-select').add(opt, null);
-}
+
 
 /* TODO:
 Шаблон стартует с "Новый напиток"
