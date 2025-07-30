@@ -1,14 +1,29 @@
 tg.MainButton.setText("Вдарил!");
 tg.MainButton.onClick(MBC);
 tg.MainButton.show();
-//tg.SecondaryButton.setText("Узнать сколько Вдарил!");
-//tg.SecondaryButton.onClick(SBC);
-//tg.SecondaryButton.position = 'top';
-//tg.SecondaryButton.show();
+tg.SecondaryButton.setText("Сделать шаблоном");
+tg.SecondaryButton.onClick(SBC);
+tg.SecondaryButton.position = 'top';
+tg.SecondaryButton.show();
 tg.MainButton.hasShineEffect = true;
 
+var templatesList = [];
 
-tg.DeviceStorage.setItem('template', 'beer_0.5');
+
+tg.DeviceStorage.getItem(key, (error, value) => {
+    if (error) {
+        console.error('Error getting from DeviceStorage:', error);
+        return;
+    }
+    templatesList.push(value);
+});
+
+for (let i = 0; i < templatesList.length; i++) {
+    const opt = document.createElement("option");
+    opt.value = templatesList[i].name;
+    opt.text = templatesList[i].name;
+    document.getElementById('template-select').add(opt, null);
+}
 
 /* TODO:
 Шаблон стартует с "Новый напиток"
@@ -22,6 +37,30 @@ function isPositiveInteger(value) {
     return /^\d+$/.test(value) && Number(value) > 0;
 }
 
+
+function checkValues(brand, percent, volume, price) {
+    if (
+        !brand ||
+        !/[^\s]/.test(brand) // не только пробелы/переводы строки
+    ) {
+        alert('Пожалуйста, введите корректное название напитка.');
+        return false;
+    }
+    if (!isPositiveInteger(percent)) {
+        alert('Поле "Процент" должно быть положительным целым числом.');
+        return false;
+    }
+    if (!isPositiveInteger(volume)) {
+        alert('Поле "Объем" должно быть положительным целым числом.');
+        return false;
+    }
+    if (!isPositiveInteger(price)) {
+        alert('Поле "Цена" должно быть положительным целым числом.');
+        return false;
+    }
+    return true;
+}
+
 function MBC() {
     // TODO: Выполнить удар
     // Получаем значения из полей формы
@@ -32,26 +71,10 @@ function MBC() {
 
     // Проверка на заполненность и корректность
     
-
-    if (
-        !brand ||
-        !/[^\s]/.test(brand) // не только пробелы/переводы строки
-    ) {
-        alert('Пожалуйста, введите корректное название напитка.');
+    if (!checkValues(brand, percent, volume, price)) {
         return;
     }
-    if (!isPositiveInteger(percent)) {
-        alert('Поле "Процент" должно быть положительным целым числом.');
-        return;
-    }
-    if (!isPositiveInteger(volume)) {
-        alert('Поле "Объем" должно быть положительным целым числом.');
-        return;
-    }
-    if (!isPositiveInteger(price)) {
-        alert('Поле "Цена" должно быть положительным целым числом.');
-        return;
-    }
+    
 
     // Формируем объект с данными
     const data = {
@@ -85,21 +108,49 @@ function onchangeTemplateSelect() {
     const volumeInput = document.getElementById('volume');
     const priceInput = document.getElementById('price');
 
-    if (select.value === 'beer_0.5') {
-        brandInput.value = 'Пиво';
-        percentInput.value = 5;
-        volumeInput.value = 500;
-        priceInput.value = 150;
-    } else {
-        brandInput.value = '';
-        percentInput.value = '';
-        volumeInput.value = '';
-        priceInput.value = '';
-    }
+    /*
+    const opt1 = document.createElement("option");
+    opt1.value = "1";
+    opt1.text = "Option: Value 1";
+    sel.add(opt1, null);
+    */
+
+    const selectedIndex = select.selectedIndex;
+    brandInput.value = templatesList[selectedIndex].name;
+    percentInput.value = templatesList[selectedIndex].percent;
+    volumeInput.value = templatesList[selectedIndex].volume;
+    priceInput.value = templatesList[selectedIndex].price;
+
 }
 
 
 
-getFromDeviceStorage('template', (value) => {
-    console.log(value);
-});
+function SBC() {
+
+    // Добавлени
+    const select = document.getElementById('template-select');
+    const brandInput = document.getElementById('brand');
+    const percentInput = document.getElementById('percent');
+    const volumeInput = document.getElementById('volume');
+    const priceInput = document.getElementById('price');
+
+    if (!checkValues(brandInput.value, percentInput.value, volumeInput.value, priceInput.value)) {
+        return;
+    }
+
+
+    templatesList.push(
+        {
+            name: brandInput.value,
+            percent: percentInput.value,
+            volume: volumeInput.value,
+            price: priceInput.value
+        }
+    )
+
+    saveToDeviceStorage('templates', templatesList);
+}
+
+
+
+
